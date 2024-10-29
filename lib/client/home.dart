@@ -13,9 +13,20 @@ class Home extends StatelessWidget {
       theme: ThemeData.dark(),
       home: Scaffold(
         backgroundColor: AppColors.background,
+        
         appBar: AppBar(
           backgroundColor: AppColors.backgroundLight,
           elevation: 0,
+          title: const Text(
+            'Mypi', // Set your title text
+            style: TextStyle(
+              fontFamily: 'YourCustomFont', // Use the custom font family name
+              color: Colors.white, // Text color
+               fontWeight: FontWeight.bold,// Make text bold
+              fontSize: 24, // Set desired font size
+            ),
+          ),
+  
         ),
         body: HomeScreen(),
       ),
@@ -64,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: Text('See All', style: TextStyle(color: Colors.green)),
+                  child: Text('See All', style: TextStyle(color: AppColors.green)),
                 ),
               ],
             ),

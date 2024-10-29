@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mypi/client/home.dart';
 import 'package:mypi/client/message.dart';
 import 'package:mypi/client/order.dart';
 import 'package:mypi/client/profile.dart';
+import 'package:mypi/constants/colors.dart';
+import 'package:mypi/widgets/svg_bottomNavigation.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,27 +50,41 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false, // Hide selected labels
-  showUnselectedLabels: false, // Hide unselected labels
-        items: const <BottomNavigationBarItem>[
+        showUnselectedLabels: false, // Hide unselected labels
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label:'',
+            icon: SvgIcon(
+              assetName: 'lib/assets/home.svg', // Your SVG path
+              color: _selectedIndex == 0 ? AppColors.green : AppColors.white,
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label:'',
+            icon: SvgIcon(
+              assetName: 'lib/assets/message.svg',
+              color: _selectedIndex == 1 ? AppColors.green : AppColors.white,
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pages),
-            label:'',
+            icon: SvgIcon(
+              assetName: 'lib/assets/order.svg',
+              color: _selectedIndex == 2 ? AppColors.green : AppColors.white,
+            ),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label:'',
+            icon: SvgIcon(
+              assetName: 'lib/assets/profile.svg',
+              color: _selectedIndex == 3 ? AppColors.green : AppColors.white,
+            ),
+            label: '',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        backgroundColor: AppColors.backgroundLight,
+        unselectedItemColor: AppColors.white,
+        selectedItemColor: AppColors.green,
         onTap: _onItemTapped,
       ),
     );
