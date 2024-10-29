@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mypi/constants/colors.dart';
+import 'package:mypi/widgets/profile_card.dart';
 
 void main() {
   runApp(Home());
@@ -48,7 +49,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          
+
           SizedBox(height: 20.0),
 
           // Popular Services Header
@@ -69,10 +70,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-
-
-          
-
           SizedBox(height: 10.0),
 
           // Horizontal List of Services
@@ -81,7 +78,9 @@ class HomeScreen extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 3,
-              padding: EdgeInsets.only(left: 16.0, right: 16.0), // Add space at the start and end of the list
+              padding: EdgeInsets.only(
+                  left: 16.0,
+                  right: 16.0), // Add space at the start and end of the list
               itemBuilder: (context, index) {
                 // Define a list of image paths
                 final images = [
@@ -110,7 +109,8 @@ class HomeScreen extends StatelessWidget {
                       // Image Section
                       Expanded(
                         child: ClipRRect(
-                          borderRadius: BorderRadius.vertical(top: Radius.circular(12.0)),
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(12.0)),
                           child: Image.asset(
                             images[index],
                             fit: BoxFit.cover,
@@ -121,13 +121,20 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(height: 8.0),
                       // Text Section
                       Container(
-                        padding: EdgeInsets.symmetric(vertical: 8.0), // Additional padding inside the text section
+                        padding: EdgeInsets.symmetric(
+                            vertical:
+                                8.0), // Additional padding inside the text section
                         decoration: BoxDecoration(
                           color: Colors.grey[900],
-                          borderRadius: BorderRadius.vertical(bottom: Radius.circular(12.0)),
+                          borderRadius: BorderRadius.vertical(
+                              bottom: Radius.circular(12.0)),
                         ),
                         child: Text(
-                          ['Photography', 'Makeup Artists', 'Cinematography'][index],
+                          [
+                            'Photography',
+                            'Makeup Artists',
+                            'Cinematography'
+                          ][index],
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -157,7 +164,8 @@ class HomeScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/photography.jpg'), // Add your featured image path here
+                      image: AssetImage(
+                          'lib/assets/photography.jpg'), // Add your featured image path here
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -178,7 +186,8 @@ class HomeScreen extends StatelessWidget {
                   top: 10.0,
                   left: 16.0,
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.7),
                       borderRadius: BorderRadius.circular(4.0),
@@ -192,6 +201,15 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+
+          SizedBox(height: 20.0),
+
+          // Profile Card
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: ProfileCard(),
+          ),
+          SizedBox(height: 20.0),
         ],
       ),
     );
