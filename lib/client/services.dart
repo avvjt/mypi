@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Order extends StatelessWidget {
-  const Order({super.key});
+class Services extends StatelessWidget {
+  const Services({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Order'),
+      child: Text('Services list'),
     );
   }
 }

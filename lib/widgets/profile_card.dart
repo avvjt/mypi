@@ -55,7 +55,7 @@ class ProfileCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20), // Space below for the profile icon
+                const SizedBox(height: 20), // Space below for the profile icon
 
                 // Name and Location
                 const Text(
@@ -73,7 +73,7 @@ class ProfileCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
 
                 // Price Status
                 const Row(
@@ -91,24 +91,28 @@ class ProfileCard extends StatelessWidget {
                   ],
                 ),
 
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
 
                 // Badges
-Row(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    Badge(text: '4.6', color: Colors.blue), // Star icon is included automatically
-    SizedBox(width: 8),
-    Badge(text: '1 Project Completed', color: Colors.grey[800]!),
-  ],
-),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Badge(
+                        text: '4.6',
+                        color:
+                            Colors.blue), // Star icon is included automatically
+                    const SizedBox(width: 8),
+                    Badge(
+                        text: '1 Project Completed', color: Colors.grey[800]!),
+                  ],
+                ),
 
-                SizedBox(height: 20), // Add space at the bottom
+                const SizedBox(height: 20), // Add space at the bottom
               ],
             ),
 
             // Circular profile icon overlapping the row
-            Positioned(
+            const Positioned(
               top:
                   40, // Half of CircleAvatar's height (30) plus some extra space
               child: CircleAvatar(
@@ -128,12 +132,12 @@ class Badge extends StatelessWidget {
   final String text;
   final Color color;
 
-  Badge({required this.text, required this.color});
+  const Badge({super.key, required this.text, required this.color});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(12),
@@ -141,11 +145,12 @@ class Badge extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min, // Use min size to fit content
         children: [
-          Icon(Icons.star, size: 16, color: Colors.white), // Always show the star icon
-          SizedBox(width: 4), // Space between the icon and the text
+          const Icon(Icons.star,
+              size: 16, color: Colors.white), // Always show the star icon
+          const SizedBox(width: 4), // Space between the icon and the text
           Text(
             text,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
         ],
       ),
